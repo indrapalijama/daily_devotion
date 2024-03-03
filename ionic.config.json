@@ -1,0 +1,7 @@
+{
+  "name": "Daily Devotion",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
