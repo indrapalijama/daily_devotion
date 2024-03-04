@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  // enpoint: 'http://localhost:5100/',
+  enpoint: 'https://fulk-bible.vercel.app/',
+  acceskey: 'qwertyuiop',
 };
 
 /*

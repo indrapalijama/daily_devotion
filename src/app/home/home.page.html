@@ -1,20 +1,26 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+<ng-container *ngIf="render">
+  <ion-header>
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title mode="ios">Renungan Harian</ion-title>
+      <ion-buttons slot="end">
+        <ion-toggle slot="end" mode="ios" [checked]="darkMode" (ionChange)="toggleDarkMode()"></ion-toggle>
+      </ion-buttons>
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
-</ion-content>
+  <ion-content class="ion-padding">
+    <ion-refresher mode="md" slot="fixed" (ionRefresh)="handleRefresh($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+    <div class="devotion-container">
+      <div class="devotion-header">
+        <span class="title">{{ devotionData.Title }}</span>
+        <span class="title"> {{ devotionData.Date | date:'d MMMM' }} </span>
+      </div>
+      <div class="devotion-content">
+        <h3>Bacaan : {{ devotionData.Passage }}</h3>
+        <div [innerHTML]="devotionData.Content"></div>
+      </div>
+    </div>
+  </ion-content>
+</ng-container>
